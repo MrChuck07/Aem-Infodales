@@ -1,0 +1,14 @@
+<sly data-sly-use.detail="com.infodales.aem.core.models.Profiles">
+<sly data-sly-list.profile="${detail.userProfile}">
+First Name:- ${profile.fiName}<br>
+Last Name:- ${profile.laName}<br>
+Address:- ${profile.address}<br>
+Contact:- 
+<sly data-sly-list.contacts="${profile.userContacts}">
+    ${contacts.contactNum}
+    <sly data-sly-test="${!contactsList.last}">,</sly>
+
+</sly> 
+<br><br>   
+</sly>
+</sly>

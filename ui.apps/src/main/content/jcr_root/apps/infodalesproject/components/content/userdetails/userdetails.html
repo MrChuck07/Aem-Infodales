@@ -1,0 +1,12 @@
+
+<sly data-sly-use.mod = "com.infodales.aem.core.models.UserDetails">
+    First Name : ${mod.firstName}<br>
+    Last Name :${mod.lastName}<br>
+    Address :${mod.address}<br>
+    Mobile Number :
+<sly data-sly-list.li = "${mod.mobileNumber}">
+   ${li.mobNum}
+<sly data-sly-test="${!liList.last}">,</sly>
+
+    </sly>
+    </sly>

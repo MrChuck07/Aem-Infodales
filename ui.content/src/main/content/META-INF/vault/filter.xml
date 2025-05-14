@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/infodalesproject" mode="merge"/>
+    <filter root="/content/infodalesproject" mode="merge"/>
+    <filter root="/content/dam/infodalesproject" mode="merge">
+        <exclude pattern="/content/dam/infodalesproject(/.*)?"/>
+        <include pattern="/content/dam/infodalesproject/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/infodalesproject/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/infodalesproject" mode="merge"/>
+</workspaceFilter>

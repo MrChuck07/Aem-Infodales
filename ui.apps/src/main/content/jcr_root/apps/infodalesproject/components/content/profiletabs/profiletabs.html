@@ -1,0 +1,19 @@
+<sly data-sly-use.clientlib="/apps/core/wcm/components/commons/v1/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='profileData'}"/>
+</sly>
+
+
+<sly data-sly-use.detail="com.infodales.aem.core.models.ProfileTabs">
+<sly data-sly-list.profile="${detail.userProfile}">
+First Name:- ${profile.userFirstName}<br>
+Last Name:- ${profile.userLastName}<br>
+Address:- ${profile.userAddress}<br>
+<br><br>   
+</sly>
+Contact:-
+<sly data-sly-list.contacts="${detail.contactUser}">
+    ${contacts.contactUser}
+    <sly data-sly-test="${!contactsList.last}">,</sly>
+
+</sly> 
+</sly>
