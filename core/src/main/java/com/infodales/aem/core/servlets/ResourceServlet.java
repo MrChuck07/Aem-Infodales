@@ -8,6 +8,8 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.osgi.service.component.annotations.Component;
@@ -17,28 +19,24 @@ import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-@Component(
-        service = {Servlet.class},
-        property = {
-                "sling.servlet.paths=/bin/register",
-                "sling.servlet.methods="+ HttpConstants.METHOD_POST
-        }
+@Component(service = {Servlet.class})
+@SlingServletResourceTypes(
+        resourceTypes = "/apps/infodalesproject/components/content/usercampaigndetails",
+        methods = HttpConstants.METHOD_POST
 )
-public class RegistrationFormServlet extends SlingAllMethodsServlet {
+public class ResourceServlet extends SlingAllMethodsServlet {
 
     JSONObject jsonObject = new JSONObject();
-
     @Override
     protected void doPost(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().write("");
 
         String firstname = request.getParameter("firstname");
         String lastname= request.getParameter("lastname");
         String id= request.getParameter("id");
         String contact= request.getParameter("contact");
         String campaignId= request.getParameter("campaignId");
-
 
         ResourceResolver resolver = request.getResourceResolver();
         Resource resource = resolver.getResource("/etc/registeredUsers");
